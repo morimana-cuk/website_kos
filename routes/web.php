@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\KomplainController;
+use App\Http\Controllers\LandingPage;
 use App\Http\Controllers\PenghuniController;
 use App\Http\Controllers\PropertiController;
 use Illuminate\Support\Facades\Auth;
@@ -22,9 +23,12 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('/kontol',[LandingPage::class,'index']);
 
 Auth::routes();
 
