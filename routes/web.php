@@ -23,12 +23,12 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });        
 
 
-Route::get('/kontol',[LandingPage::class,'index']);
+Route::get('/',[LandingPage::class,'index']);
 
 Auth::routes();
 
