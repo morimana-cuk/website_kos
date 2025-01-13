@@ -15,10 +15,15 @@ return new class extends Migration
         Schema::create('Keuangan', function (Blueprint $table) {
             $table->id('id_keuangan')->autoIncrement();
             $table->integer('jenis_properti')->comment('1 = kamar, 2 = rumah, 3 = ruko');
-            $table->string('no_kamar');
+            $table->string('no_kamar')->nullable();
             $table->integer('jenis_pembayaran')->comment('1 = cash, 2 = transfer, 3 = qris');
             $table->string('bukti_pembayaran');
             $table->integer('nik');
+            $table->timestamp('tgl_bayar');
+            $table->integer('tagihan');
+
+            #define relation
+            $table->foreign('nik')->references('nik')->on('Penghuni');
         });
     }
 

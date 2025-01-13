@@ -15,7 +15,7 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">komplain</h1>
-                 
+
                 </div>
 
                 <!-- Content Row -->
@@ -27,25 +27,46 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>nama</th>
+                                        <th>properti</th>
                                         <th>No kamar</th>
                                         <th>tgl komplain</th>
                                         <th>komplain</th>
                                         <th>status</th>
+                                        <th>aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach($properties as $property)
+                                    @foreach($komplain as $k)
                                         <tr>
-                                            <td>{{ $property->id }}</td>
-                                            <td>{{ $property->name }}</td>
-                                            <td>{{ $property->location }}</td>
-                                            <td>{{ $property->price }}</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $k->nama }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                @if ($k->jenis_properti == 1)
+                                                    Kamar
+                                                @endif
+                                                @if ($k->jenis_properti == 2)
+                                                    Rumah
+                                                @endif
+                                                @if ($k->jenis_properti == 3)
+                                                    Ruko
+                                                @endif
+                                            </td>
+                                            <td>{{ $k->no_kamar }}</td>
+                                            <td>{{ $k->tgl_komplain }}</td>
+                                            <td>{{ $k->komplain }}</td>
+                                            <td>
+                                                @if ($k->status == 0)
+                                                    belum diproses
+                                                @endif
+                                                @if ($k->status == 1)
+                                                    sudah diproses
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('edit_komplain', $k->id_komplain) }}" class="btn btn-primary btn-sm">Edit</a>
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

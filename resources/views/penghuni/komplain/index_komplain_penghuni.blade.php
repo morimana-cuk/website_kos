@@ -14,8 +14,10 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">keuangan</h1>
-
+                    <h1 class="h3 mb-0 text-gray-800">komplain</h1>
+                    <a href="{{ route('create_komplain_penyewa') }}"
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-plus fa-sm text-white-50"></i> ajukan komplain</a>
                 </div>
 
                 <!-- Content Row -->
@@ -27,16 +29,15 @@
                                     <tr>
                                         <th>NO</th>
                                         <th>nama</th>
-                                        <th>jenis properti</th>
+                                        <th>properti</th>
                                         <th>No kamar</th>
-                                        <th>tagihan</th>
-                                        <th>tgl bayar</th>
+                                        <th>tgl komplain</th>
+                                        <th>komplain</th>
                                         <th>status</th>
-                                        <th>aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($keuangan as $k)
+                                    @foreach($komplain as $k)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $k->nama }}</td>
@@ -52,20 +53,20 @@
                                                 @endif
                                             </td>
                                             <td>{{ $k->no_kamar }}</td>
-                                            <td>{{ $k->tagihan }}</td>
-                                            <td>{{ $k->tgl_bayar }}</td>
+                                            <td>{{ $k->tgl_komplain }}</td>
+                                            <td>{{ $k->komplain }}</td>
                                             <td>
                                                 @if ($k->status == 0)
-                                                    belum terverifikasi
+                                                    belum diproses
                                                 @endif
                                                 @if ($k->status == 1)
-                                                    terverifikasi
+                                                    sudah diproses
                                                 @endif
                                             </td>
-                                            <td>
-                                                <a href="{{ route('edit_keuangan', $k->id_keuangan) }}"
-                                                    class="btn btn-warning">Edit</a>
-                                            </td>
+                                            {{-- <td>
+                                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                            </td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

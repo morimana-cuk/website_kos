@@ -15,7 +15,9 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">keuangan</h1>
-
+                    <a href="{{ route('create_keuangan_penyewa') }}"
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-plus fa-sm text-white-50"></i> lakukan pembayaran</a>
                 </div>
 
                 <!-- Content Row -->
@@ -32,7 +34,6 @@
                                         <th>tagihan</th>
                                         <th>tgl bayar</th>
                                         <th>status</th>
-                                        <th>aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,17 +55,13 @@
                                             <td>{{ $k->no_kamar }}</td>
                                             <td>{{ $k->tagihan }}</td>
                                             <td>{{ $k->tgl_bayar }}</td>
-                                            <td>
+                                            <td> 
                                                 @if ($k->status == 0)
                                                     belum terverifikasi
                                                 @endif
                                                 @if ($k->status == 1)
                                                     terverifikasi
                                                 @endif
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('edit_keuangan', $k->id_keuangan) }}"
-                                                    class="btn btn-warning">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach

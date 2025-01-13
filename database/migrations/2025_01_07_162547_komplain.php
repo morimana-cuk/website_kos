@@ -15,9 +15,14 @@ return new class extends Migration
         Schema::create('Komplain', function (Blueprint $table) {
             $table->id('id_komplain')->autoIncrement();
             $table->integer('jenis_properti')->comment('1 = kamar, 2 = rumah, 3 = ruko');
-            $table->string('no_kamar');
+            $table->string('no_kamar')->nullable();
             $table->string('komplain');
             $table->integer('nik');
+            $table->timestamp('tgl_komplain');
+            $table->enum('status',['1','0'])->default(0)->comment('1 = sudah diproses, 0 = belum diproses');
+
+            #define relation
+            $table->foreign('nik')->references('nik')->on('Penghuni');
         });
     }
 
