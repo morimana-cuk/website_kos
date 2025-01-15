@@ -41,8 +41,8 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select class="form-control" id="status" name="status">
-                        <option value="0" {{ $keuangan->status == '0' ? 'selected' : '' }}>Belum Diproses</option>
-                        <option value="1" {{ $keuangan->status == '1' ? 'selected' : '' }}>Sudah Diproses</option>
+                        <option value="0" {{ $keuangan->status == '0' ? 'selected' : '' }}>belum terverifikasi</option>
+                        <option value="1" {{ $keuangan->status == '1' ? 'selected' : '' }}>terverifikasi</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Update Keuangan</button>

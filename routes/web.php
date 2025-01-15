@@ -7,6 +7,8 @@ use App\Http\Controllers\admin\KeuanganController;
 use App\Http\Controllers\admin\KomplainController;
 use App\Http\Controllers\admin\PenghuniController;
 use App\Http\Controllers\admin\PropertiController;
+use App\Http\Controllers\LandingPage;
+use App\Http\Controllers\penghuni\DashboardPenyewacontroller;
 use App\Http\Controllers\penghuni\KeuanganPenhuniController;
 use App\Http\Controllers\penghuni\KomplainPenhuniController;
 use Illuminate\Support\Facades\Auth;
@@ -33,14 +35,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/loginAction', 'HomeController@index')->name('loginAction');
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
-Route::put('/profile', 'ProfileController@update')->name('profile.update');
+// Route::get('/profile', 'ProfileController@index')->name('profile');
+// Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-// Route::get('/', [LandingPageController::class, 'index'])->name('home');
+Route::get('/', [LandingPage::class, 'index'])->name('landingpage');
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/Auth', [LoginController::class, 'login'])->name('Auth');
@@ -50,8 +52,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('keluar');
 Route::middleware(['auth', 'role:2'])->group(function () {
 
     Route::prefix('penyewa')->group(function () {
-        Route::get('/', [KomplainPenhuniController::class, 'index'])->name('index_komplain_penyewa');
-        Route::get('/komplain', [KomplainPenhuniController::class, 'create'])->name('create_komplain_penyewa');
+        Route::get('/dashboard', [DashboardPenyewacontroller::class, 'index'])->name('dashboard_penyewa');
+        Route::get('/komplain', [KomplainPenhuniController::class, 'index'])->name('index_komplain_penyewa');
+        Route::get('/komplain/create', [KomplainPenhuniController::class, 'create'])->name('create_komplain_penyewa');
         Route::post('/store_komplain', [KomplainPenhuniController::class, 'store'])->name('store_komplain_penyewa');
         Route::post('/delete_komplain/{id}', [KomplainPenhuniController::class, 'destroy'])->name('delete_komplain_penyewa');
 

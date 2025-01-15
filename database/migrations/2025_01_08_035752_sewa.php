@@ -14,13 +14,13 @@ return new class extends Migration
         //
         Schema::create('Sewa', function (Blueprint $table) {
             $table->id('id_sewa')->autoIncrement();
-            $table->integer('id_penghuni');
-            $table->integer('id_properti');
+            $table->integer('id_penghuni')->nullable();
+            $table->integer('id_properti')->nullable();
 
 
             #define relation
-            $table->foreign('id_penghuni')->references('nik')->on('Penghuni');
-            $table->foreign('id_properti')->references('id_properti')->on('Properti');
+            $table->foreign('id_penghuni')->references('nik')->on('Penghuni')->onDelete('cascade');
+            $table->foreign('id_properti')->references('id_properti')->on('Properti')->onDelete('cascade');
         });
     }
 

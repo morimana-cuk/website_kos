@@ -98,7 +98,7 @@ class LoginController extends Controller
             //code...
             Auth::logout();
             $request->session()->flush();
-            return redirect()->route('login');
+            return redirect()->route('landingpage');
         } catch (\Throwable $th) {
             //throw $th;
             // return error($th->getMessage());

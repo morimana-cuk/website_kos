@@ -47,16 +47,12 @@ class penghuni extends Model
     public function GetPenghuniBYNIK($id)
     {
         $data = DB::table('penghuni')
-            ->join('sewa', 'penghuni.nik', '=', 'sewa.id_penghuni')
-            ->join('properti', 'sewa.id_properti', '=', 'properti.id_properti')
             ->select(
                 'penghuni.nik',
                 'penghuni.nama',
                 'penghuni.tgl_masuk',
                 'penghuni.tgl_keluar',
                 'penghuni.no_hp',
-                'properti.jenis_properti',
-                'properti.no_kamar'
             )
             ->where('penghuni.nik', '=', $id) // Menambahkan kondisi WHERE
             ->first();

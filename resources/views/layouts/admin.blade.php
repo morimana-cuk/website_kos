@@ -89,6 +89,12 @@
 
             @auth
                 @if (Auth::user()->role == '2')
+                    <li class="nav-item {{ Nav::isRoute('dashboard_penyewa') }}">
+                        <a class="nav-link" href="{{ route('dashboard_penyewa') }}">
+                            <i class="fas fa-fw fa-tachometer-alt"style="color: #000;"></i>
+                            <span style="color: #000;">{{ __('Dashboard') }}</span></a>
+                    </li>
+
                     <li class="nav-item {{ Nav::isRoute('index_komplain_penyewa') }}">
                         <a class="nav-link" href="{{ route('index_komplain_penyewa') }}">
                             <i class="fas fa-fw fa-exclamation-circle" style="color: #000;"></i>
@@ -114,12 +120,12 @@
             </div>
 
             <!-- Nav Item - Profile -->
-            <li class="nav-item {{ Nav::isRoute('profile') }}">
+            {{-- <li class="nav-item {{ Nav::isRoute('profile') }}">
                 <a class="nav-link" href="{{ route('profile') }}">
                     <i class="fas fa-fw fa-user" style="color: #000;"></i>
                     <span style="color: #000;">{{ __('Profile') }}</span>
                 </a>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - About -->
             <li class="nav-item {{ Nav::isRoute('about') }}">

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('nik');
             $table->timestamp('tgl_bayar');
             $table->integer('tagihan');
+            $table->enum('status', ['1', '0'])->default('0')->comment('1 = terverifikasi, 0 = belum terverifikasi');
 
             #define relation
             $table->foreign('nik')->references('nik')->on('Penghuni');

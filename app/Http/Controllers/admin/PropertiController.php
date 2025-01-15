@@ -98,6 +98,7 @@ class PropertiController extends Controller
     public function destroy($id)
     {
         $properti = properti::find($id);
+        $sewa = sewa::where('id_properti', $properti->id_properti)->update(['id_penghuni' => null]);
         $properti->delete();
         return redirect()->route('index_properti');
     }

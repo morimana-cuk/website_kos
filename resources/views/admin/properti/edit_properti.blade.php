@@ -9,15 +9,17 @@
             <div class="card-body">
                 <form action="{{ route('update_properti', $properti->id_properti) }}" method="POST">
                     @csrf
+                    <!-- filepath: /D:/sekolah/polije/project/joki/website_kos/resources/views/admin/properti/edit_properti.blade.php -->
+                    <!-- filepath: /D:/sekolah/polije/project/joki/website_kos/resources/views/admin/properti/edit_properti.blade.php -->
                     <div class="form-group">
                         <label for="jenis_properti">Jenis Properti</label>
-                        <select class="form-control" id="jenis_properti" name="jenis_properti" required
-                            onchange="toggleNoKamar()">
+                        <select class="form-control" id="jenis_properti" name="jenis_properti_disabled" required disabled>
                             <option value="">Pilih jenis properti</option>
                             <option value="1" {{ $properti->jenis_properti == 1 ? 'selected' : '' }}>Kamar</option>
                             <option value="2" {{ $properti->jenis_properti == 2 ? 'selected' : '' }}>Rumah</option>
                             <option value="3" {{ $properti->jenis_properti == 3 ? 'selected' : '' }}>Ruko</option>
                         </select>
+                        <input type="hidden" name="jenis_properti" value="{{ $properti->jenis_properti }}">
                     </div>
                     <div class="form-group" id="no_kamar_group"
                         style="display: {{ $properti->jenis_properti == 1 ? 'block' : 'none' }}">
