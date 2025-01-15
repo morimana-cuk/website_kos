@@ -82,7 +82,7 @@ class LoginController extends Controller
                 session()->put('username', $account->username);
                 session()->put('role', $account->role);
                 session()->put('nik', $account->nik);
-                return redirect()->route('index_komplain_penyewa');
+                return redirect()->route('dashboard_penyewa');
                 # code...
             }
         } catch (\Throwable $th) {
