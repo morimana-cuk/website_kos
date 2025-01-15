@@ -173,7 +173,7 @@
     <!-- Contact Section -->
     <section id="contact" class="bg-gray-50 py-12">
         <div class="container mx-auto px-4 text-center max-w-4xl">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Ready to Find Your Dream Home?</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Ready to Find Your Dream Homee?</h2>
             <p class="text-gray-600 mb-8">Contact us today and let us help you find the perfect property</p>
 
             <!-- Contact Form -->
