@@ -85,6 +85,8 @@ class LoginController extends Controller
                 return redirect()->route('dashboard_penyewa');
                 # code...
             }
+
+            return redirect()->back()->with('error', 'Username or password is wrong');
         } catch (\Throwable $th) {
             //throw $th;
             // return error($th->getMessage());
